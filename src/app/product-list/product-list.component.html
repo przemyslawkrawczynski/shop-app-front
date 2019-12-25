@@ -1,2 +1,6 @@
 <p>Lista produktów</p>
-<app-product></app-product>
+      <div *ngFor="let prod of productList">
+        <app-product [product]="prod"></app-product>
+      </div>
+
+
