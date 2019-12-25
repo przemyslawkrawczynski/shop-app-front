@@ -1,0 +1,39 @@
+<article class="card-body p-5">
+	<h3 class="title mb-3">{{product.name}}</h3>
+
+<p class="price-detail-wrap">
+	<span class="price h3 text-warning">
+		<span class="num">{{product.price}}</span><span class="currency"> PLN</span>
+	</span>
+</p> <!-- price-detail-wrap .// -->
+<dl class="item-property">
+  <dt>Opis produktu</dt>
+  <dd><p>{{product.description}}</p></dd>
+</dl>
+<dl class="param param-feature">
+  <dt>#Kategoria</dt>
+  <dd>{{product.categoryName}}</dd>
+</dl>  <!-- item-property-hor .// -->
+<dl class="param param-feature">
+  <dt>Dostępność produktu</dt>
+  <dd>{{product.storageQuantity}}</dd>
+</dl>  <!-- item-property-hor .// -->
+
+<hr>
+	<div class="row">
+		<div class="col-sm-5">
+			<dl class="param param-inline">
+			  <dt>Zamów: </dt>
+			  <dd>
+			  	<select class="form-control form-control-sm" style="width:70px;">
+			  		<option> 1 </option>
+			  		<option> 2 </option>
+			  		<option> 3 </option>
+			  	</select>
+			  </dd>
+			</dl>  <!-- item-property .// -->
+		</div> <!-- col.// -->
+	</div> <!-- row.// -->
+	<hr>
+	<a href="#" class="btn btn-sm btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Dodaj do koszyka </a>
+</article> <!-- card-body.// -->
