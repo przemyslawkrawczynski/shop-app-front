@@ -15,14 +15,12 @@ export class ProductComponent implements OnInit {
 
 }
 
-export class Product {
-  constructor(
-    public id: number,
-    public name: string,
-    public description: string,
-    public storageQuantity: number,
-    public price: number,
-    public categoryId: number,
-    public categoryName: string
-  ) {}
+export interface Product {
+    id: number;
+    name: string;
+    description: string;
+    storageQuantity: number;
+    price: number;
+    categoryId: number;
+    categoryName: string;
 }

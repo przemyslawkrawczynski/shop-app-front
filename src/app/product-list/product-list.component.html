@@ -1,6 +1,13 @@
 <p>Lista produktów</p>
-      <div *ngFor="let prod of productList">
-        <app-product [product]="prod"></app-product>
-      </div>
-
-
+<div *ngFor="let prod of productList">
+  <app-product [product]="prod"></app-product>
+</div>
+<div class="container">
+  <div fxFlex="value%" fxFlexAlign="end">
+    <button href="#"
+    class="btn btn-sm btn-outline-primary text-uppercase"
+    (click)="getActualProducts()">
+    Odśwież listę produktów
+     </button>
+  </div>
+</div>
