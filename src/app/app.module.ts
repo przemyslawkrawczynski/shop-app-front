@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { HeaderComponent } from './header/header.component';
 import { ProductComponent } from './product/product.component';
 import { ProductRestService } from './services/product-rest.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 
 
@@ -14,8 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     ProductListComponent,
-    HeaderComponent,
-    ProductComponent
+    ProductComponent,
+    NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

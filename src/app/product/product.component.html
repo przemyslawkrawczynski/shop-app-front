@@ -1,39 +1,15 @@
-<article class="card-body p-5">
-	<h3 class="title mb-3">{{product.name}}</h3>
 
-<p class="price-detail-wrap">
-	<span class="price h3 text-warning">
-		<span class="num">{{product.price}}</span><span class="currency"> PLN</span>
-	</span>
-</p> <!-- price-detail-wrap .// -->
-<dl class="item-property">
-  <dt>Opis produktu</dt>
-  <dd><p>{{product.description}}</p></dd>
-</dl>
-<dl class="param param-feature">
-  <dt>#Kategoria</dt>
-  <dd>{{product.categoryName}}</dd>
-</dl>  <!-- item-property-hor .// -->
-<dl class="param param-feature">
-  <dt>Dostępność produktu</dt>
-  <dd>{{product.storageQuantity}}</dd>
-</dl>  <!-- item-property-hor .// -->
-
-<hr>
-	<div class="row">
-		<div class="col-sm-5">
-			<dl class="param param-inline">
-			  <dt>Zamów: </dt>
-			  <dd>
-			  	<select class="form-control form-control-sm" style="width:70px;">
-			  		<option> 1 </option>
-			  		<option> 2 </option>
-			  		<option> 3 </option>
-			  	</select>
-			  </dd>
-			</dl>  <!-- item-property .// -->
-		</div> <!-- col.// -->
-	</div> <!-- row.// -->
-	<hr>
-	<a href="#" class="btn btn-sm btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Dodaj do koszyka </a>
-</article> <!-- card-body.// -->
+<div class="card m-2 ">
+  <h5 class="card-header">{{product.name}} </h5>
+  <div class="card-body">
+    <p class="card-text text-secondary">{{product.description}}</p>
+    <h6 class="card-title"># Kategoria - {{product.categoryName}}</h6>
+  </div>
+</div>
+<div class="row m-2">
+  <div class="col-md-4">Cena: <span class="text-primary"><b>{{product.price}} PLN</b></span></div>
+  <div class="col-md-4">Dostępność: <span class="text-primary"><b>{{product.storageQuantity}}</b></span></div>
+  <div class="col-md-4" align="right">
+    <a href="#" class="btn btn-sm btn-warning text-primary"><b>Dodaj do koszyka</b></a>
+  </div>
+</div>

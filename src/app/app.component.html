@@ -1,28 +1,14 @@
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<app-navbar></app-navbar>
+  <app-product-list></app-product-list>
 
-<app-header></app-header>
-<div class="containter">
-  <div class="row align-items-right">
-    <div class="col-md-2">
-      <a class="" href="/">
-      <img src="/assets/img/logo_male.png" alt="Shop App logo">
-      </a>
-    </div>
-    <div class="col-md-10">
-      <p [align]="align" class="display-4">{{pageText}}</p>
-    </div>
-  </div>
-  <div class="containter">
-    <app-product-list></app-product-list>
-  </div>
-</div>
-
-<div>
+  <div>
     <!-- Footer -->
-    <footer></footer>
-</div>
-
-
-
+    <app-footer></app-footer>
+  </div>
 

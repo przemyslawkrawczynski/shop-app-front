@@ -1,13 +1,25 @@
-<p>Lista produktów</p>
-<div *ngFor="let prod of productList">
-  <app-product [product]="prod"></app-product>
-</div>
 <div class="container">
-  <div fxFlex="value%" fxFlexAlign="end">
-    <button href="#"
-    class="btn btn-sm btn-outline-primary text-uppercase"
-    (click)="getActualProducts()">
-    Odśwież listę produktów
-     </button>
+  <div class="row">
+    <div class="col-md-7"></div>
+    <div class="col-md-5">
+      <ul class="list-group list-group-horizontal" *ngFor="let cat of categoryList">
+        <li class="list-group-item">{{cat.categoryName}}</li>
+      </ul>
+    </div>
   </div>
+
+  <BR>
+  <div class="row">
+    <h3 class="text-right text-normal">Przeglądaj produkty</h3>
+  </div>
+  <hr>
+  <div *ngFor="let prod of productList">
+    <app-product [product]="prod"></app-product>
+    <hr>
+  </div>
+
+  <button href="#" class="btn btn-sm btn-outline-primary text-uppercase" (click)="getActualProducts()">
+    Odśwież listę produktów
+  </button>
+  <br>
 </div>

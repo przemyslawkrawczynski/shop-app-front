@@ -19,7 +19,6 @@ export class ProductRestService  {
   }
 
   getProducts(): Observable<Product[]> {
-    console.log("iam here");
     return this.httpClient.get<Product[]>(this.URL_PRODUCT_API);
   }
 
