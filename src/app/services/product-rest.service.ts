@@ -22,5 +22,8 @@ export class ProductRestService  {
     return this.httpClient.get<Product[]>(this.URL_PRODUCT_API);
   }
 
+  getProductsByCategory(categoryId): Observable<Product[]> {
+     return this.httpClient.get<Product[]>(this.URL_PRODUCT_API + '/categories/' + categoryId);
+  }
 
 }

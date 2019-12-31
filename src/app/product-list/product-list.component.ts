@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductRestService } from '../services/product-rest.service';
 import { Product } from 'src/app/product/product.component';
 import { CategoryRestService, Category } from '../services/category-rest.service';
+import { splitClasses } from '@angular/compiler';
 
 @Component({
   selector: 'app-product-list',
@@ -21,7 +22,13 @@ export class ProductListComponent implements OnInit {
     this.getActualCategories();
   }
 
+  onMouseEnter(event) {
+    event.target.classList.value = 'text-primary';
+  }
 
+  onMouseLeave(event) {
+    event.target.classList.value = 'text-secondary';
+  }
 
   getActualProducts() {
     this.productRestService.getProducts()
@@ -29,10 +36,14 @@ export class ProductListComponent implements OnInit {
     console.log('Aktualna lista produktów: ' + this.productList.length);
   }
 
+  getProductsByCategory(categoryId) {
+    this.productRestService.getProductsByCategory(categoryId)
+    .subscribe(actualList => this.productList = actualList);
+  }
+
   getActualCategories() {
     this.categoryRestService.getCategories()
     .subscribe(actualList => this.categoryList = actualList);
-    console.log('Aktualna lista kategorii: ' + this.categoryList.length);
   }
 
 }
