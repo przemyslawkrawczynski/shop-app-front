@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderRestService, OrderDto } from '../services/order-rest.service';
+
 
 @Component({
   selector: 'app-orders',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
 
-  constructor() { }
+  orders: Array<OrderDto>;
+  infoPanel: string = null;
 
-  ngOnInit() {
+  constructor(private orderService: OrderRestService) {
+
   }
 
+  ngOnInit() {
+    this.getData();
+  }
+
+  getData() {
+    this.orders = new Array();
+    let data = this.orderService.getAllUserOrders(28);
+    data.subscribe(response => {
+      this.orders = response;
+    });
+
+  }
 }
+
+

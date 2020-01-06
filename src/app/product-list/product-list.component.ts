@@ -33,7 +33,6 @@ export class ProductListComponent implements OnInit {
   getActualProducts() {
     this.productRestService.getProducts()
     .subscribe(actualList => this.productList = actualList);
-    console.log('Aktualna lista produktów: ' + this.productList.length);
   }
 
   getProductsByCategory(categoryId) {

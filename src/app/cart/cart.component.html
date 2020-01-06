@@ -1,1 +1,52 @@
-<p>cart works!</p>
+ <div class=container *ngIf="cartItems.length == 0">
+   <p class="h3">Twój koszyk jest pusty.</p>
+ </div>
+ <div class="container" *ngIf="cartItems.length > 0">
+  <div class="d-flex bd-highlight">
+    <div class="p-2 flex-grow-1 bd-highlight">
+   <p class=h5>Aktualny koszyk zamówień</p><BR>
+    </div>
+    <div class="p-2 bd-highlight">
+      <div *ngIf="infoPanel != null" class="alert alert-danger" role="alert">
+        {{infoPanel}}
+      </div>
+  </div>
+  </div>
+   <table class="table table-sm">
+     <thead>
+       <tr>
+         <th scope="col">#</th>
+         <th scope="col">Id</th>
+         <th scope="col">Nazwa</th>
+         <th scope="col">Cena</th>
+         <th scope="col">Ilość</th>
+         <th scope="col">Wartość zamówienia</th>
+         <th scope="col"></th>
+         <th scope="col"></th>
+       </tr>
+     </thead>
+     <tbody>
+
+       <tr *ngFor="let cartItem of cartItems, index as i">
+         <th scope="row">{{ i + 1}}</th>
+         <td>{{cartItem.id}}</td>
+         <td>{{cartItem.productDto.name}}</td>
+         <td>{{cartItem.productDto.price}}</td>
+         <td><input class="form-text-sm text-center text-muted" [(ngModel)]="cartItem.quantity" type="text" size="1">
+         </td>
+         <td>{{cartItem.itemValue}}</td>
+         <td><button class="btn btn-sm btn-warning" (click)=updateCartItem(cartItem)>Popraw</button></td>
+         <td><button class="btn btn-sm btn-danger" (click)="deleteCart(cartItem)">Usuń</button></td>
+       </tr>
+
+     </tbody>
+   </table>
+   <div class="d-flex bd-highlight">
+     <div class="p-2 flex-grow-1 bd-highlight">
+       <p class=h5>Podsumowanie zamówienia:      <span class="text-primary">{{cart.cartValue}} PLN </span></p>
+     </div>
+     <div class="p-2 bd-highlight">
+         <button class="btn btn-primary">Zamów</button>
+     </div>
+   </div>
+ </div>
