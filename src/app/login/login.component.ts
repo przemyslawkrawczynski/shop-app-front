@@ -25,8 +25,11 @@ export class LoginComponent implements OnInit {
       (jwt => {
         authInfo.userJwtInfo.jwtToken = jwt.jwtToken;
         authInfo.setInfoFromToken(jwt.jwtToken);
+        this.router.navigate(['/products']);
+      },
+      err => {
+        this.errorPlace = 'Nie udało się zalogować, błędne login lub hasło';
       });
-    this.router.navigate(['/products']);
   }
 
 

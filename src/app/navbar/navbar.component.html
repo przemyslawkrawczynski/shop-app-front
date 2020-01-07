@@ -21,9 +21,9 @@
           <a class="nav-link" routerLink="/products" routerLinkActive="active">Produkty</a>
         </li>
         <li *ngIf="isLogged()" class="nav-item">
-          <div *ngIf="!isAdmin()">
-          <a class="nav-link" routerLink="/orders" routerLinkActive="active">Zamówienia</a>
-          </div>
+
+          <a class="nav-link" routerLink="/orders" routerLinkActive="active">Moje zamówienia</a>
+
         </li>
         <li *ngIf="isLogged()" class="nav-item">
           <div *ngIf="isAdmin()">

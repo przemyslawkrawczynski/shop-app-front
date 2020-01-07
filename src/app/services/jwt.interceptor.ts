@@ -11,7 +11,6 @@ export class JwtInterceptor implements HttpInterceptor {
     // add authorization header with jwt token if available
 
     let isLoggedin = this.authServ.isLoggedIn();
-    console.log(isLoggedin);
     let token = 'Bearer ' + this.authServ.userJwtInfo.jwtToken;
     var authReq = request.clone({
       headers: new HttpHeaders({
@@ -22,7 +21,6 @@ export class JwtInterceptor implements HttpInterceptor {
     });
 
     if (isLoggedin) {
-      console.log('Intercepted HTTP call', authReq);
       return next.handle(authReq);
     } else {
 

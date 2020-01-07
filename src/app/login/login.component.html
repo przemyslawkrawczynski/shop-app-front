@@ -2,6 +2,9 @@
   <div class="row d-flex justify-content-center">
     <div class="col-md-6">
       <img src="/assets/img/logo_male.png">
+      <br>
+      <p class="small"><b>User ROLE_USER</b>: jbravo / password<br>
+      <b>User ROLE_Admin</b>: msmith / password</p>
     </div>
     <div class="col-md-6 d-flex justify-content-right border-left">
       <form (ngSubmit)="login(formData)" #formData="ngForm">
@@ -18,6 +21,7 @@
     </div>
   </div>
   <div *ngIf="errorPlace != ''" class="container">
+    <hr>
     <div class="alert alert-sm alert-sm alert-danger" role="alert">
       {{errorPlace}}
     </div>
