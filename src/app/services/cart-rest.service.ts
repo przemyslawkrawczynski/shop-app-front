@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 export class CartRestService {
 
 
-  private URL_CART_API = 'http://pkrawczynscu.nazwa.pl:8999/api/shop/carts';
+  private URL_CART_API = 'http://localhost:8999/api/shop/carts';
   constructor(private http: HttpClient, private authService: AuthService) {
 
   }
