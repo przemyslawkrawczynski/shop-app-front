@@ -3,6 +3,8 @@ import { CartItem } from '../cart-item/cart-item.component';
 import { CartRestService } from '../services/cart-rest.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { OrderRestService } from '../services/order-rest.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +17,10 @@ export class CartComponent implements OnInit {
   cart: Cart = new Cart();
   infoPanel: string = null;
 
-  constructor(private cartService: CartRestService, private router: Router) {
+  constructor(private cartService: CartRestService,
+              private router: Router,
+              private orderService: OrderRestService,
+              private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -53,11 +58,22 @@ export class CartComponent implements OnInit {
     }
   }
 
+  doOrder() {
+    this.orderService.doOrder(this.cart.user_id).subscribe(
+      response => {
+        if (response.status === 201) {
+          this.infoPanel = 'Pomyślnie złożono zamówienie';
+          this.router.navigate(['/orders']);
+        }
+      }
+    )
+  }
+
   refreshData() {
     this.cartItems = new Array();
     this.cart = new Cart();
 
-    let data = this.cartService.getCartByCartId(29);
+    let data = this.cartService.getCartByCartId();
 
     data.subscribe(response => {
       this.cartItems = response.cartItemDtos;

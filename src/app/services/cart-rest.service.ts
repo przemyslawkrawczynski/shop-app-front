@@ -2,25 +2,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { CartDto } from '../cart/cart.component';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartRestService {
 
-  cartId: number = 29;
 
   private URL_CART_API = 'http://localhost:8999/api/shop/carts';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) {
 
-  getCartByCartId(cart_id: number): Observable<CartDto> {
-    return this.http.get<CartDto>(this.URL_CART_API + '/' + cart_id);
+  }
+
+  getCartByCartId(): Observable<CartDto> {
+    let cartId = this.authService.userJwtInfo.cartId;
+    return this.http.get<CartDto>(this.URL_CART_API + '/' + cartId);
   }
 
   addCartItemToCart(productId: number, quant: number) {
 
+    let cartId = this.authService.userJwtInfo.cartId;
+
     const addCartItemDto = {
-      cart_id: this.cartId,
+      cart_id: cartId,
       product_id: productId,
       quantity: quant
     } as AddCartItemDto;

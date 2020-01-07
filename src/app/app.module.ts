@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductComponent } from './product/product.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +14,10 @@ import { OrdersComponent } from './orders/orders.component';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { JwtInterceptor } from './services/jwt.interceptor';
+import { AuthGardsService } from './services/auth-gards.service';
+import { ManagementComponent } from './management/management.component';
+
 
 const appRoutes: Routes = [
   {
@@ -25,16 +29,23 @@ const appRoutes: Routes = [
     component: ProductListComponent,
   },
   {
+    path: 'management',
+    component: ManagementComponent,
+    canActivate: [AuthGardsService]
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },
   {
     path: 'cart',
     component: CartComponent,
+    canActivate: [AuthGardsService]
   },
   {
     path: 'orders',
     component: OrdersComponent,
+    canActivate: [AuthGardsService]
   },
   {
     path: '',
@@ -58,6 +69,8 @@ const appRoutes: Routes = [
     OrdersComponent,
     PageNotFoundComponent,
     CartItemComponent,
+    ManagementComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -67,7 +80,9 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

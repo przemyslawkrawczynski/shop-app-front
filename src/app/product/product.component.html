@@ -9,7 +9,7 @@
   <div class="col-md-4">Cena: <span class="text-primary"><b>{{product.price}} PLN</b></span></div>
   <div class="col-md-4">Dostępność: <span class="text-primary"><b>{{product.storageQuantity}}</b></span></div>
   <div class="col-md-4">
-    <form (ngSubmit)="addProductToCart(formData)" #formData="ngForm">
+    <form  (ngSubmit)="addProductToCart(formData)" #formData="ngForm">
       <div class="form-group">
       <div class="row">
       <div class="col-md-4" align="right">
@@ -20,11 +20,11 @@
         </div>
       </div>
       </div>
-    </form>
+      </form>
+      </div>
   </div>
-</div>
 <div *ngIf="errorPlace != ''" class="container">
-  <div class="alert alert-sm alert-danger" role="alert">
+  <div class="alert alert-sm alert-sm alert-danger" role="alert">
     {{errorPlace}}
   </div>
 </div>

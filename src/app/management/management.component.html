@@ -1,10 +1,10 @@
 <div class=container *ngIf="orders.length == 0">
-  <p class="h3">Nie realizowałeś jeszcze z nami zamówień.</p>
+  <p class="h3">Nie ma dostępnych zamówień</p>
 </div>
 <div class="container" *ngIf="orders.length > 0">
   <div class="d-flex bd-highlight">
     <div class="p-2 flex-grow-1 bd-highlight">
-      <p class=h5>Wszystkie Twoje zamówienia</p><BR>
+      <p class=h5>Wszystkie dostępne zamówienia</p><BR>
     </div>
     <div class="p-2 bd-highlight">
       <div *ngIf="infoPanel != null" class="alert alert-danger" role="alert">
@@ -21,6 +21,8 @@
         <th scope="col">Liczba pozycji</th>
         <th scope="col">Wartość zamówienia</th>
         <th scope="col">Status</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -36,7 +38,25 @@
           <div *ngIf="order.orderStatus === 'SENDED'">Wysłano</div>
           <div *ngIf="order.orderStatus === 'DELETED'">Anulowano</div>
         </td>
-       </tr>
+        <td>
+          <form (ngSubmit)="updateOrderStatus(formData, order)" #formData="ngForm">
+            <div class="form-group row">
+              <div class="col">
+                <select ngModel name="status" class="form-control form-control-sm" placeholder="choose.." required>
+                  <option value="" disabled>Wybierz...</option>
+                  <option>Wysłano</option>
+                  <option>Anulowano</option>
+                </select>
+              </div>
+              <div class="col">
+                <button type="submit" class="btn btn-sm btn-warning">Modyfikuj</button>
+              </div>
+            </div>
+          </form>
+        </td>
+        <td></td>
+      </tr>
+
     </tbody>
   </table>
   <div class="d-flex bd-highlight">
